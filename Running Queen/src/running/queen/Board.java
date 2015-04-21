@@ -3,7 +3,7 @@ import java.util.*;
 
 
 /**
- * Basic representation of a board, uses lists to hold positons of pieces.
+ * Basic representation of a board, uses lists to hold positions of pieces.
  * Also generates pieces on the board. 
  * 
  * @author (Craig Fee, Adam Kennett) 
@@ -15,6 +15,11 @@ public class Board
     char[][] board;
     int size;
     Random rand = new Random();
+    int qRow;
+    int qCol;
+    int heurFromStart;
+    int heurFromGoal;
+    int heurTotal;
     
     /**
      * Constructor Method, initializes instance with empty lists
@@ -22,11 +27,14 @@ public class Board
     public Board(int size)
     {
         this.size = size;
-        board = randPiece(size);;
+        board = randPiece(size);
+        findQueen(this);
+        heurTotal = distFromStart()+distFromGoal();
+        
 
     }
      /**
-     * Constructor method, aceepts a Board object as parameter and passes 
+     * Constructor method, accepts a Board object as parameter and passes 
      * it's queens list to the new board
      */
     public Board(Board b)
@@ -194,5 +202,89 @@ public class Board
             System.out.println();
         }
        
+    }
+    //finds the queen on the board
+    public void findQueen()
+    {
+        for(int i =0; i<size-1;i++)
+        {
+            for(int j=0;j<size-1;j++)
+            {
+                if(board[i][j]=='Q')
+                    qRow = i;
+                    qCol = j;
+                    break;
+            }
+        }
+    }
+    public int distFromStart()
+    {
+        
+        return heurFromStart = qRow;
+    }
+    public int distFromGoal()
+    {
+        
+        return heurFromGoal = size - qRow;
+    }
+
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getqRow() {
+        return qRow;
+    }
+
+    public int getqCol() {
+        return qCol;
+    }
+
+    public int getHeurFromStart() {
+        return heurFromStart;
+    }
+
+    public int getHeurFromGoal() {
+        return heurFromGoal;
+    }
+
+    public int getHeurTotal() {
+        return heurTotal;
+    }
+
+    public void setBoard(char[][] board) {
+        this.board = board;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public void setqRow(int qRow) {
+        this.qRow = qRow;
+    }
+
+    public void setqCol(int qCol) {
+        this.qCol = qCol;
+    }
+
+    public void setHeurFromStart(int heurFromStart) {
+        this.heurFromStart = heurFromStart;
+    }
+
+    public void setHeurFromGoal(int heurFromGoal) {
+        this.heurFromGoal = heurFromGoal;
+    }
+
+    public void setHeurTotal(int heurTotal) {
+        this.heurTotal = heurTotal;
+    }
+    public int findTotalHeur()
+    {
+        return heurTotal = heurFromStart + heurFromGoal;
     }
 }
