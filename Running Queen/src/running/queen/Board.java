@@ -1,4 +1,5 @@
- 
+package running.queen;
+
 import java.util.*;
 
 
@@ -28,7 +29,7 @@ public class Board
     {
         this.size = size;
         board = randPiece(size);
-        findQueen(this);
+        this.findQueen();
         heurTotal = distFromStart()+distFromGoal();
         
 
