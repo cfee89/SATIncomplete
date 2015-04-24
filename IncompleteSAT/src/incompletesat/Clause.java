@@ -1,4 +1,4 @@
-
+package incompletesat;
 import java.util.ArrayList;
 import java.util.Iterator;
 /**
@@ -44,8 +44,8 @@ public class Clause {
     }
 
     /**
-     * Uses a loop to go through each variabe in the clause
-     * gets the boolean negation at the corisponing index  to  consider if the variable is to be negated
+     * Uses a loop to go through each variable in the clause
+     * gets the boolean negation at the corresponding index  to  consider if the variable is to be negated
      * sets the satisfied variable to true if satisfied
      * @return boolean based on whether the clause is satisfied or not
      */
@@ -78,7 +78,7 @@ public class Clause {
     }
 
     /**
-     * adds a literal to the Litterals list
+     * adds a literal to the Literals list
      * Pre: must have a negation to corispond with in negtion list
      */
     public void addLiteral(Literal lit)
@@ -88,8 +88,8 @@ public class Clause {
     }
 
     /**
-     * adds a bolean varable to the negation list
-     * Pre: must have a literal to corispond with in Literals list
+     * adds a boolean variable to the negation list
+     * Pre: must have a literal to correspond with in Literals list
      */
     public void addNegation(boolean y)
     {

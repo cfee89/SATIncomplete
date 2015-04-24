@@ -2,6 +2,7 @@
  * Checks that both arrays in literal are equal
  * @ author Johnathan Saunders
  */
+package incompletesat;
 public class UnequalLitteralAndDisjuntion extends Exception implements java.io.Serializable
 {
     private String key;
